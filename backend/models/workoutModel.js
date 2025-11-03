@@ -9,11 +9,11 @@ const workoutSchema = new Schema({
   },
   sets: {
     type: Number,
-    require: true
+    required: true
   },
   reps: {
     type: Number,
-    require: true
+    required: true
   }
 }, { timestamps: true })
 

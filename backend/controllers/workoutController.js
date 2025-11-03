@@ -3,17 +3,14 @@ const mongoose = require('mongoose')
 
 // GET all workouts
 const getWorkouts = async (req, res) => {
-
   const workouts = await Workout.find({}).sort({createdAt: -1})
 
   res.status(200).json(workouts)
-
 }
 
 
 // GET a single workout
 const getWorkout = async (req, res) => {
-
   const { id } = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -27,13 +24,11 @@ const getWorkout = async (req, res) => {
   }
 
   res.status(200).json(workout)
-
 }
 
 
 // CREATE/POST new a workout
 const createWorkout = async (req, res) => {
-
   const { title, sets, reps } = req.body
 
   // ADD doc to DB
@@ -43,13 +38,11 @@ const createWorkout = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message })
   }
-
 }
 
 
 // DELETE a workout
 const deleteWorkout = async (req, res) => {
-
   const {id} = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -63,13 +56,11 @@ const deleteWorkout = async (req, res) => {
   }
 
   res.status(200).json(workout)
-
 }
 
 
 // UPDATE/PATCH a workout
 const updateWorkout = async (req, res) => {
-
   const {id} = req.params
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -85,7 +76,6 @@ const updateWorkout = async (req, res) => {
   }
 
   res.status(200).json(workout)
-
 }
 
 
